@@ -77,7 +77,7 @@ def main(args):
     travels = [travel for travel in r.json()["travels"]
                if travel["noShow"]["afficherBoutonConfirmer"]]
     for travel in travels:
-        r = s.get(CONFIRM_URL % (account_id, travel["id"]), headers)
+        r = s.get(CONFIRM_URL % (account_id, travel["id"]), headers=headers)
 
         confirmed = False
         for new_travel in r.json()["travels"]:
